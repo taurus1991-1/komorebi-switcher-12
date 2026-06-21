@@ -31,7 +31,7 @@ pub unsafe fn create_host(
 		..Default::default()
 	};
 
-	RegisterClassW(&wc);
+	let _ = unsafe { RegisterClassW(&wc) };
 
 	let userdata = WndProcUserData { proxy };
 

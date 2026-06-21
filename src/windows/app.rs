@@ -211,12 +211,6 @@ impl ApplicationHandler<AppMessage> for App {
 		window_id: WindowId,
 		event: WindowEvent,
 	) {
-		if event == WindowEvent::Destroyed {
-			tracing::info!("Window {window_id:?} destroyed");
-			self.windows.remove(&window_id);
-			return;
-		}
-
 		if matches!(event, WindowEvent::CloseRequested | WindowEvent::Destroyed) {
 			tracing::info!("Closing window {window_id:?}");
 			self.windows.remove(&window_id);
