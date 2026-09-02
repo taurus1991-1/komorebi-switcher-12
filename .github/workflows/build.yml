@@ -26,13 +26,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
 
-      - run: cargo build
+      - run: cargo build --release
 
       - uses: actions/upload-artifact@v4
         id: upload
         with:
           name: komorebi-switcher-windows-pr-${{ github.event.number }}-${{ github.event.pull_request.head.sha }}
-          path: target/debug/komorebi-switcher.exe
+          path: target/release/komorebi-switcher.exe
           overwrite: true
 
   build-macos:
