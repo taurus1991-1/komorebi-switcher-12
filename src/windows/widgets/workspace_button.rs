@@ -51,7 +51,7 @@ impl egui::Widget for WorkspaceButton<'_> {
 
 		let dark_mode = self.dark_mode.unwrap_or_else(|| ui.visuals().dark_mode);
 
-		let font_id = egui::FontId::default();
+		let font_id = egui::FontId::proportional(12.0);
 		let text_color = self.text_color.unwrap_or(if dark_mode {
 			egui::Color32::WHITE
 		} else {
