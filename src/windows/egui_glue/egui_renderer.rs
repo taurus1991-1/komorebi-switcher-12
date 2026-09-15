@@ -22,10 +22,7 @@ impl EguiRenderer {
 
 		fonts.font_data.insert(
 			"segoe_ui".to_owned(),
-			egui::FontData::from_static(
-				include_bytes!("../../../assets/segoeui.ttf"),
-			)
-			.into(),
+			egui::FontData::from_static(include_bytes!("../../../assets/segoeui.ttf")).into(),
 		);
 
 		fonts
