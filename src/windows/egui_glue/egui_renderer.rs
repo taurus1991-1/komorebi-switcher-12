@@ -18,6 +18,24 @@ impl EguiRenderer {
 	) -> Self {
 		let egui_context = egui::Context::default();
 
+		let mut fonts = egui::FontDefinitions::default();
+
+		fonts.font_data.insert(
+			"segoe_ui".to_owned(),
+			egui::FontData::from_static(
+				include_bytes!("../../../assets/segoeui.ttf"),
+			)
+			.into(),
+		);
+
+		fonts
+			.families
+			.get_mut(&egui::FontFamily::Proportional)
+			.unwrap()
+			.insert(0, "segoe_ui".to_owned());
+
+		egui_context.set_fonts(fonts);
+
 		{
 			let window = window.clone();
 			egui_context.set_request_repaint_callback(move |_| {
